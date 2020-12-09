@@ -148,26 +148,18 @@ public class GroupPacificQATeamTest extends BaseTest {
     }
 
     @Test
-    public void Vladfirsttest() throws InterruptedException {
+    public void vladFirstTest() throws InterruptedException {
 
         WebDriver driver = getDriver();
-
         driver.get("https://www.paypal.com/");
-
         Thread.sleep(500);
 
         WebElement button = driver.findElement(By.xpath("//*[@id='signup-button']"));
-
         button.click();
-
         Thread.sleep(500);
-        
+
         String text = driver.findElement(By.xpath("//*[@id=\"main\"]/section/div/div/h3")).getText();
-
         Assert.assertEquals(text,"PayPal is a secure, easy way to pay and get paid - sign up for free");
-
-
-
-    }
+   }
 }
 
