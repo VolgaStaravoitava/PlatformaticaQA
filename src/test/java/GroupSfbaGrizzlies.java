@@ -26,34 +26,28 @@ public class GroupSfbaGrizzlies extends BaseTest {
         WebElement title = browser.findElement(By.xpath("//div/h1[text()='HOME AT BOREAL']"));
 
         Assert.assertEquals(title.getText(), "HOME AT BOREAL");
-        Thread.sleep(3000);
+
 
         browser.findElement(By.xpath("//div[@class='alert-content animated fadeInUp']"));
-        Thread.sleep(3000);
+
 
         browser.findElement(By.xpath("//nav[contains(@img, ng-scope)]"));
-        Thread.sleep(3000);
 
         browser.findElement(By.xpath("//a[@class='u-txt-uppercase ng-scope btn']")).click();
-        Thread.sleep(3000);
+
 
         browser.findElement(By.xpath("//a[@class='u-txt-uppercase campwoodward-link ng-scope btn']")).click();
-        Thread.sleep(3000);
 
         browser.findElement(By.xpath("//button[@class='feed']")).click();
-        Thread.sleep(3000);
+
 
         browser.findElement(By.xpath("//a[@class='register']")).click();
-        Thread.sleep(3000);
+
 
         browser.findElement(By.xpath("//a[text()='Log In']")).click();
-        Thread.sleep(3000);
 
         browser.findElement(By.xpath("//a[@class='promotion-button valign']"));
-        Thread.sleep(3000);
 
-       // browser.findElement(By.xpath("//button/a[text()='Buy Lift Tickets']"));
-       // Thread.sleep(3000);
 
 
 
