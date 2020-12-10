@@ -1,7 +1,4 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -195,6 +192,28 @@ public class GroupPacificQATeamTest extends BaseTest {
         setTarget.click();
 
         Assert.assertEquals(browser.getCurrentUrl(), "https://www.codecademy.com/account/goals_settings");
+    }
+
+    @Test
+    public void stepanSearchYoutubeTest () throws InterruptedException {
+        WebDriver browser = getDriver();
+        String homepage = "https://www.youtube.com/";
+        String inputField = "//div/input";
+        String testData = "король и шут";
+
+        browser.get(homepage);
+        Thread.sleep(1000);
+        browser.findElement(By.xpath(inputField)).click();
+        browser.findElement(By.xpath(inputField)).sendKeys(testData + Keys.ENTER);
+        Thread.sleep(2000);
+
+        Assert.assertTrue(browser.getTitle().contains(testData));
+        Assert.assertTrue(browser.findElement(By.xpath("(//a/yt-formatted-string[@class = 'style-scope ytd-video-renderer'])[1]")).getText().toLowerCase().contains(testData));
+        Assert.assertTrue(browser.findElement(By.xpath("(//a/yt-formatted-string[@class = 'style-scope ytd-video-renderer'])[2]")).getText().toLowerCase().contains(testData));
+        Assert.assertTrue(browser.findElement(By.xpath("(//a/yt-formatted-string[@class = 'style-scope ytd-video-renderer'])[3]")).getText().toLowerCase().contains(testData));
+        Assert.assertTrue(browser.findElement(By.xpath("(//a/yt-formatted-string[@class = 'style-scope ytd-video-renderer'])[4]")).getText().toLowerCase().contains(testData));
+        Assert.assertTrue(browser.findElement(By.xpath("(//a/yt-formatted-string[@class = 'style-scope ytd-video-renderer'])[5]")).getText().toLowerCase().contains(testData));
+
     }
 }
 
