@@ -198,21 +198,23 @@ public class GroupPacificQATeamTest extends BaseTest {
     public void stepanSearchYoutubeTest () throws InterruptedException {
         WebDriver browser = getDriver();
         String homepage = "https://www.youtube.com/";
-        String inputField = "//div/input";
-        String testData = "король и шут";
+        String testData = "цой";
+        String searchResult = "(//a/yt-formatted-string[@class = 'style-scope ytd-video-renderer'])";
 
         browser.get(homepage);
         Thread.sleep(1000);
-        browser.findElement(By.xpath(inputField)).click();
-        browser.findElement(By.xpath(inputField)).sendKeys(testData + Keys.ENTER);
+
+        WebElement inputField = browser.findElement(By.xpath("//div/input"));
+        inputField.click();
+        inputField.sendKeys(testData + Keys.ENTER);
         Thread.sleep(2000);
 
         Assert.assertTrue(browser.getTitle().contains(testData));
-        Assert.assertTrue(browser.findElement(By.xpath("(//a/yt-formatted-string[@class = 'style-scope ytd-video-renderer'])[1]")).getText().toLowerCase().contains(testData));
-        Assert.assertTrue(browser.findElement(By.xpath("(//a/yt-formatted-string[@class = 'style-scope ytd-video-renderer'])[2]")).getText().toLowerCase().contains(testData));
-        Assert.assertTrue(browser.findElement(By.xpath("(//a/yt-formatted-string[@class = 'style-scope ytd-video-renderer'])[3]")).getText().toLowerCase().contains(testData));
-        Assert.assertTrue(browser.findElement(By.xpath("(//a/yt-formatted-string[@class = 'style-scope ytd-video-renderer'])[4]")).getText().toLowerCase().contains(testData));
-        Assert.assertTrue(browser.findElement(By.xpath("(//a/yt-formatted-string[@class = 'style-scope ytd-video-renderer'])[5]")).getText().toLowerCase().contains(testData));
+        Assert.assertTrue(browser.findElement(By.xpath(searchResult + "[1]")).getText().toLowerCase().contains(testData));
+        Assert.assertTrue(browser.findElement(By.xpath(searchResult + "[2]")).getText().toLowerCase().contains(testData));
+        Assert.assertTrue(browser.findElement(By.xpath(searchResult + "[3]")).getText().toLowerCase().contains(testData));
+        Assert.assertTrue(browser.findElement(By.xpath(searchResult + "[4]")).getText().toLowerCase().contains(testData));
+        Assert.assertTrue(browser.findElement(By.xpath(searchResult + "[5]")).getText().toLowerCase().contains(testData));
 
     }
 }
