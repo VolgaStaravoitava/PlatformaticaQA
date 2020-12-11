@@ -129,11 +129,12 @@ public class GroupJavaBearsTest extends BaseTest {
 
     @Test
     public void alexanderDemidionok(){
+
         WebDriver driver = getDriver();
         driver.get("https://github.com/assemblyad");
+
         WebElement homePage = driver.findElement(By.xpath("//a[@href='https://github.com/']"));
         homePage.click();
         Assert.assertEquals(getDriver().getCurrentUrl(),"https://github.com/");
     }
-
 }
