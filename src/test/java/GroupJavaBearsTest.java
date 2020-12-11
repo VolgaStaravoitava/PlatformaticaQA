@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 public class GroupJavaBearsTest extends BaseTest {
 
+
     @Test
     public void victoriaRogozhkina() {
 
@@ -124,6 +125,15 @@ public class GroupJavaBearsTest extends BaseTest {
 
         WebElement search_result = browser.findElement(By.xpath("//h2[contains(text(), 'Search Results')]"));
         Assert.assertEquals(search_result.getText(), "SEARCH RESULTS");
+    }
+
+    @Test
+    public void alexanderDemidionok(){
+        WebDriver driver = getDriver();
+        driver.get("https://github.com/assemblyad");
+        WebElement homePage = driver.findElement(By.xpath("//a[@href='https://github.com/']"));
+        homePage.click();
+        Assert.assertEquals(getDriver().getCurrentUrl(),"https://github.com/");
     }
 
 }
