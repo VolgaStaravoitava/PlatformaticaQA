@@ -54,6 +54,20 @@ public class GroupLetsDoItTest extends BaseTest {
     }
 
     @Test
+    public void mishinaOliaTest() {
+
+        WebDriver browser = getDriver();
+        browser.get("https://www.selenium.dev/");
+
+        browser.findElement(By.xpath("//a[text()='Projects']")).click();
+
+        Assert.assertEquals(browser.getTitle(), "Selenium Projects");
+    }
+
+
+
+
+    @Test
     public void volgaStaravoitavaTest() {
 
         WebDriver browser = getDriver();
